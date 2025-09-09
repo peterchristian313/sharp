@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seller Permit Plans — Simple Pricing for Every Seller</title>
+    <meta name="description" content="Choose from Basic, Standard, or Advanced Seller Permit Plans. Affordable compliance and reliable support for your online store.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <style>
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .accordion.active .accordion-content {
+            max-height: 300px;
+        }
+        .modal {
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+        }
+        .modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+    </style>
+</head>
+<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script type="text/javascript">
+    (function() {
+        emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS public key
+    })();
+
+    document.getElementById('permitForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const templateParams = {
+            selectedPlan: document.getElementById('selectedPlan').value,
+            email: document.getElementById('email').value,
+            storeUrl: document.getElementById('storeUrl').value,
+            location: document.getElementById('location').value,
+            businessName: document.getElementById('businessName').value,
+        };
+
+        emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", templateParams)
+            .then(function(response) {
+                closeModal();
+                document.getElementById('successModal').classList.add('active');
+            }, function(error) {
+                alert("❌ Failed to send. Please try again.");
+                console.log("FAILED...", error);
+            });
+
+        this.reset();
+    });
+</script>
+<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script type="text/javascript">
+    (function() {
+        emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS public key
+    })();
+
+    document.getElementById('permitForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const templateParams = {
+            selectedPlan: document.getElementById('selectedPlan').value,
+            email: document.getElementById('email').value,
+            storeUrl: document.getElementById('storeUrl').value,
+            location: document.getElementById('location').value,
+            businessName: document.getElementById('businessName').value,
+        };
+
+        emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", templateParams)
+            .then(function(response) {
+                closeModal();
+                document.getElementById('successModal').classList.add('active');
+            }, function(error) {
+                alert("❌ Failed to send. Please try again.");
+                console.log("FAILED...", error);
+            });
+
+        this.reset();
+    });
+</script>
+<body class="font-sans bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="w-10 h-10 bg-[#95BF47] rounded-lg flex items-center justify-center text-white font-bold text-xl">SP</div>
+                <span class="ml-3 font-semibold text-gray-800">SellerPermit</span>
+            </div>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#plans" class="text-gray-600 hover:text-blue-600 transition">Plans</a>
+                <a href="#testimonials" class="text-gray-600 hover:text-blue-600 transition">Testimonials</a>
+                <a href="#faq" class="text-gray-600 hover:text-blue-600 transition">FAQ</a>
+                <a href="#" class="text-gray-600 hover:text-blue-600 transition">Support</a>
+            </nav>
+            <a href="certificate.html" class="bg-[#95BF47] hover:bg-[#7da53a] text-white px-4 py-2 rounded-lg transition shadow-sm">
+                Get Permit
+            </a>
+            <button class="md:hidden">
+                <i data-feather="menu"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-white py-16">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-12 md:mb-0" data-aos="fade-right">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-800 leading-tight mb-4">
+                    Secure Your Seller Permit with the Right Plan
+                </h1>
+                <p class="text-xl text-gray-600 mb-8">
+                    Choose the plan that fits your business needs. Transparent pricing, reliable compliance, and professional support.
+                </p>
+                <a href="#plans" class="bg-[#95BF47] hover:bg-[#7da53a] text-white px-6 py-3 rounded-lg transition shadow-sm text-lg">
+                    View Plans
+                </a>
+            </div>
+            <div class="md:w-1/2" data-aos="fade-left">
+                <img src="http://static.photos/finance/1024x576/1" alt="Ecommerce compliance illustration" class="rounded-lg shadow-md">
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="plans" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Simple, Transparent Pricing</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    No hidden fees. Cancel anytime. All plans include our compliance guarantee.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Basic Plan -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden pricing-card transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-2">Basic Plan</h3>
+                        <p class="text-gray-600 mb-6">Perfect for individual sellers starting out</p>
+                        <div class="mb-6">
+                            <span class="text-4xl font-bold text-gray-800">$197</span>
+                            <span class="text-gray-600">/permit</span>
+                        </div>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center">
+                                <i data-feather="check" class="text-green-500 mr-2"></i>
+                                <span>Permit registration</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i data-feather="check" class="text-green-500 mr-2"></i>
+                                <span>Basic compliance check</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i data-feather="check" class="text-green-500 mr-2"></i>
+                                <span>Email support</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i data-feather="check" class="text-green-500 mr-2"></i>
+                                <span>5 product listings</span>
+                            </li>
+                        </ul>
+                        <button onclick="openModal('Basic Plan')" class="w-full bg-[#95BF47] hover:bg-[#7da53a] text-white py-3 rounded-lg transition">
+                            Choose Basic
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Standard Plan -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden pricing-card transition-all duration-300 transform scale-105" data-aos="fade-up">
+                    <div class="p-8">
+                        <div class="relative">
+                            <div class="absolute -top-6 -right-6 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full transform rotate-12">
+                                Most Popular
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-2">Standard Plan</h3>
+                        <p class="text-gray-600 mb-6">For growing sellers who need more coverage</p>
+                        <div class="mb-6">
+                            <span class="text-4xl font-bold text-gray-800">$245</span>
+                            <span class="text-gray-600">/permit</span>
+                        </div>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center">
+                                <i data-feather="check" class="text-green-500 mr-2"></i>
+                                <span>Permit registration + verification</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i data-feather="check" class="text-green-500 mr-2"></i>
+                                <span>Full compliance audit</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i data-feather="check" class="text-green-500 mr-2"></i>
+                                <span>Priority support</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i data-feather="check" class="text-green-500 mr-2"></i>
+                                <span>20 product listings</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i data-feather="check" class="text-green-500 mr-2"></i>
+                                <span>Partner forum access</span>
+                            </li>
+                        </ul>
+                        <button onclick="openModal('Standard Plan')" class="w-full bg-[#5e8e3e] hover:bg-[#4d7733] text-white py-3 rounded-lg transition">
+                            Choose Standard
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Advanced Plan -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden pricing-card transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-2">Advanced Plan</h3>
+                        <p class="text-gray-600 mb-6">Premium compliance for scaling businesses</p>
+                        <div class="mb-6">
+                            <span class="text-4xl font-bold text-gray-800">$315</span>
+                            <span class="text-gray-600">/permit</span>
+                        </div>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center">
+                                <i data-feather="check" class="text-green-500 mr-2"></i>
+                                <span>Permit registration + verification</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i data-feather="check" class="text-green-500 mr-2"></i>
+                                <span>Ongoing compliance monitoring</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i data-feather="check" class="text-green-500 mr-2"></i>
+                                <span>Dedicated support manager</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i data-feather="check" class="text-green-500 mr-2"></i>
+                                <span>Unlimited product listings</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i data-feather="check" class="text-green-500 mr-2"></i>
+                                <span>Custom solutions</span>
+                            </li>
+                        </ul>
+                        <button onclick="openModal('Advanced Plan')" class="w-full bg-[#95BF47] hover:bg-[#7da53a] text-white py-3 rounded-lg transition">
+                            Choose Advanced
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">What our customers say</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Trusted by thousands of sellers across the country
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-gray-50 p-8 rounded-xl" data-aos="fade-up">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 rounded-full bg-[#e8f5e9] flex items-center justify-center text-[#95BF47] font-bold">
+                            SJ
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-bold text-gray-800">Sarah Johnson</h4>
+                            <p class="text-gray-600">Founder, Boutique Store</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 italic">
+                        "Switching to SellerPermit was the best decision for our growing business. The Standard plan gave us all the tools we needed to triple our online sales in just six months."
+                    </p>
+                    <div class="flex mt-4">
+                        <i data-feather="star" class="text-yellow-400"></i>
+                        <i data-feather="star" class="text-yellow-400"></i>
+                        <i data-feather="star" class="text-yellow-400"></i>
+                        <i data-feather="star" class="text-yellow-400"></i>
+                        <i data-feather="star" class="text-yellow-400"></i>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-gray-50 p-8 rounded-xl" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 rounded-full bg-[#e8f5e9] flex items-center justify-center text-[#95BF47] font-bold">
+                            MC
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-bold text-gray-800">Michael Chen</h4>
+                            <p class="text-gray-600">CEO, Tech Gadgets</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 italic">
+                        "The Advanced plan's unlimited product listings and custom integrations allowed us to scale seamlessly as we expanded to new markets. The support team is exceptional."
+                    </p>
+                    <div class="flex mt-4">
+                        <i data-feather="star" class="text-yellow-400"></i>
+                        <i data-feather="star" class="text-yellow-400"></i>
+                        <i data-feather="star" class="text-yellow-400"></i>
+                        <i data-feather="star" class="text-yellow-400"></i>
+                        <i data-feather="star" class="text-yellow-400"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Frequently asked questions</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Can't find what you're looking for? <a href="#" class="text-blue-600 hover:underline">Contact our support team</a>.
+                </p>
+            </div>
+
+            <div class="max-w-3xl mx-auto">
+                <!-- FAQ 1 -->
+                <div class="mb-4 border-b border-gray-200 pb-4 accordion" data-aos="fade-up">
+                    <button class="flex justify-between items-center w-full text-left font-semibold text-gray-800 hover:text-blue-600 focus:outline-none accordion-button">
+                        <span>How does billing work?</span>
+                        <i data-feather="chevron-down" class="accordion-icon transform transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p class="mt-2 text-gray-600">
+                            We offer simple monthly billing with no long-term contracts. You'll be charged on the same day each month that you signed up. You can cancel anytime with no penalties.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="mb-4 border-b border-gray-200 pb-4 accordion" data-aos="fade-up" data-aos-delay="100">
+                    <button class="flex justify-between items-center w-full text-left font-semibold text-gray-800 hover:text-blue-600 focus:outline-none accordion-button">
+                        <span>Can I upgrade or downgrade my plan?</span>
+                        <i data-feather="chevron-down" class="accordion-icon transform transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p class="mt-2 text-gray-600">
+                            Yes, you can change your plan at any time. When upgrading, you'll immediately gain access to the new features. Downgrades take effect at your next billing cycle.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="mb-4 border-b border-gray-200 pb-4 accordion" data-aos="f fade-up" data-aos-delay="200">
+                    <button class="flex justify-between items-center w-full text-left font-semibold text-gray-800 hover:text-blue-600 focus:outline-none accordion-button">
+                        <span>What is your refund policy?</span>
+                        <i data-feather="chevron-down" class="accordion-icon transform transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p class="mt-2 text-gray-600">
+                            We provide refunds on a case-by-case basis if services were not delivered as promised. Contact support for assistance.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 bg-[#95BF47] rounded-lg flex items-center justify-center text-white font-bold text-xl">SP</div>
+                        <span class="ml-3 font-semibold">SellerPermit</span>
+                    </div>
+                    <p class="text-gray-400">
+                        Simple, transparent seller permit solutions for businesses of all sizes.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Company</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Careers</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Legal</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Terms</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Cookie Policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Contact</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i data-feather="mail" class="w-4 h-4 mr-2"></i>
+                            <a href="mailto:support@sellerpermit.com" class="text-gray-400 hover:text-white transition">support@sellerpermit.com</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="phone" class="w-4 h-4 mr-2"></i>
+                            <span class="text-gray-400">(555) 123-4567</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 SellerPermit. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 modal" id="applicationModal">
+        <div class="bg-white rounded-xl max-w-md w-full relative modal-content transform transition-all duration-300 scale-95 shadow-lg">
+            <!-- Header with green border -->
+            <div class="border-t-4 border-[#95BF47] rounded-t-xl">
+                <div class="p-6">
+                    <div class="flex justify-between items-start">
+                        <h3 class="text-2xl font-bold text-gray-800">Selected Plan: <span id="selectedPlanDisplay" class="text-[#95BF47]"></span></h3>
+                        <button onclick="closeModal()" class="text-gray-500 hover:text-gray-700">
+                            <i data-feather="x"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form -->
+            <form id="permitForm" class="p-6 space-y-4">
+                <input type="hidden" id="selectedPlan" name="selectedPlan">
+                
+                <div>
+                    <label for="email" class="block text-gray-700 mb-2 font-medium">Email Address</label>
+                    <input type="email" id="email" name="email" required placeholder="you@example.com" 
+                        class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#95BF47] focus:border-[#95BF47] transition">
+                </div>
+
+                <div>
+                    <label for="storeUrl" class="block text-gray-700 mb-2 font-medium">Store URL</label>
+                    <input type="url" id="storeUrl" name="storeUrl" required placeholder="https://yourstore.myshopify.com" 
+                        class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#95BF47] focus:border-[#95BF47] transition">
+                </div>
+
+                <div>
+                    <label for="location" class="block text-gray-700 mb-2 font-medium">Location of Operation</label>
+                    <select id="location" name="location" required 
+                        class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#95BF47] focus:border-[#95BF47] transition">
+                        <option value="">Select your location</option>
+                        <option value="us">United States</option>
+                        <option value="ca">Canada</option>
+                        <option value="uk">United Kingdom</option>
+                        <option value="eu">European Union</option>
+                        <option value="au">Australia</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="businessName" class="block text-gray-700 mb-2 font-medium">Business Name</label>
+                    <input type="text" id="businessName" name="businessName" required placeholder="Your business name" 
+                        class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#95BF47] focus:border-[#95BF47] transition">
+                </div>
+
+                <div class="flex items-start pt-2">
+                    <div class="flex items-center h-5">
+                        <input id="terms" name="terms" type="checkbox" required 
+                            class="w-4 h-4 text-[#95BF47] border-gray-300 rounded focus:ring-[#95BF47]">
+                    </div>
+                    <label for="terms" class="ml-2 block text-sm text-gray-600">
+                        I agree to the terms and conditions
+                    </label>
+                </div>
+
+                <button type="submit" class="w-full bg-[#95BF47] hover:bg-[#7da53a] text-white py-3 rounded-lg transition font-medium mt-4">
+                    Submit Application
+                </button>
+            </form>
+
+            <!-- Footer -->
+            <div class="px-6 pb-6 pt-4 border-t border-gray-100">
+                <div class="flex justify-center space-x-4 mb-3">
+                    <a href="#" class="text-gray-400 hover:text-[#95BF47] transition">Facebook</a>
+                    <span>·</span>
+                    <a href="#" class="text-gray-400 hover:text-[#95BF47] transition">Instagram</a>
+                    <span>·</span>
+                    <a href="#" class="text-gray-400 hover:text-[#95BF47] transition">Twitter</a>
+                    <span>·</span>
+                    <a href="#" class="text-gray-400 hover:text-[#95BF47] transition">LinkedIn</a>
+                </div>
+                <p class="text-center text-xs text-gray-400">
+                    © 2025 Shopify Seller Permit. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 modal" id="successModal">
+        <div class="bg-white rounded-xl max-w-md w-full p-8 relative modal-content transform transition-all duration-300 scale-95">
+            <div class="text-center">
+                <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i data-feather="check" class="text-green-600 w-8 h-8"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-800 mb-4">Application Submitted</h3>
+                <p class="text-gray-600 mb-6">
+                    ✅ Successfully selected a plan for your seller permit. An email will be sent to the provided Gmail to make payment.
+                </p>
+                <button onclick="closeSuccessModal()" class="bg-[#95BF47] hover:bg-[#7da53a] text-white px-6 py-2 rounded-lg transition">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        // Initialize EmailJS
+        (function() {
+            emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS public key
+        })();
+
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+
+        // Initialize Feather Icons
+        feather.replace();
+
+        // Accordion functionality
+        document.querySelectorAll('.accordion-button').forEach(button => {
+            button.addEventListener('click', () => {
+                const accordion = button.closest('.accordion');
+                const content = accordion.querySelector('.accordion-content');
+                const icon = button.querySelector('.accordion-icon');
+
+                accordion.classList.toggle('active');
+                
+                if (accordion.classList.contains('active')) {
+                    icon.classList.add('rotate-180');
+                } else {
+                    icon.classList.remove('rotate-180');
+                }
+            });
+        });
+
+        // Modal functionality
+        function openModal(plan) {
+            document.getElementById('selectedPlan').value = plan;
+            document.getElementById('selectedPlanDisplay').textContent = plan;
+            document.getElementById('applicationModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('applicationModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function closeSuccessModal() {
+            document.getElementById('successModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Form submission
+        document.getElementById('permitForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const templateParams = {
+                selectedPlan: document.getElementById('selectedPlan').value,
+                email: document.getElementById('email').value,
+                storeUrl: document.getElementById('storeUrl').value,
+                location: document.getElementById('location').value,
+                businessName: document.getElementById('businessName').value,
+            };
+
+            emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", templateParams)
+                .then(function(response) {
+                    closeModal();
+                    document.getElementById('successModal').classList.add('active');
+                }, function(error) {
+                    alert("❌ Failed to send. Please try again.");
+                    console.log("FAILED...", error);
+                });
+
+            this.reset();
+        });
+
+        // Close modals when clicking outside
+        window.addEventListener('click', function(e) {
+            if (e.target === document.getElementById('applicationModal')) {
+                closeModal();
+            }
+            if (e.target === document.getElementById('successModal')) {
+                closeSuccessModal();
+            }
+        });
+    </script>
+</body>
+</html>
